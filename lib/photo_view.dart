@@ -239,6 +239,7 @@ class PhotoView extends StatefulWidget {
     this.backgroundDecoration,
     this.gaplessPlayback = false,
     this.heroAttributes,
+    this.localHeroTag,
     this.scaleStateChangedCallback,
     this.enableRotation = false,
     this.controller,
@@ -274,6 +275,7 @@ class PhotoView extends StatefulWidget {
     this.childSize,
     this.backgroundDecoration,
     this.heroAttributes,
+    this.localHeroTag,
     this.scaleStateChangedCallback,
     this.enableRotation = false,
     this.controller,
@@ -320,6 +322,8 @@ class PhotoView extends StatefulWidget {
   /// Attributes that are going to be passed to [PhotoViewCore]'s
   /// [Hero]. Leave this property undefined if you don't want a hero animation.
   final PhotoViewHeroAttributes? heroAttributes;
+
+  final Object? localHeroTag;
 
   /// Defines the size of the scaling base of the image inside [PhotoView],
   /// by default it is `MediaQuery.of(context).size`.
@@ -495,6 +499,7 @@ class _PhotoViewState extends State<PhotoView>
                 childSize: widget.childSize,
                 backgroundDecoration: backgroundDecoration,
                 heroAttributes: widget.heroAttributes,
+                localHeroTag: widget.localHeroTag,
                 scaleStateChangedCallback: widget.scaleStateChangedCallback,
                 enableRotation: widget.enableRotation,
                 controller: _controller,
@@ -520,6 +525,7 @@ class _PhotoViewState extends State<PhotoView>
                 backgroundDecoration: backgroundDecoration,
                 gaplessPlayback: widget.gaplessPlayback,
                 heroAttributes: widget.heroAttributes,
+                localHeroTag: widget.localHeroTag,
                 scaleStateChangedCallback: widget.scaleStateChangedCallback,
                 enableRotation: widget.enableRotation,
                 controller: _controller,

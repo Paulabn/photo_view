@@ -315,6 +315,7 @@ class PhotoViewGalleryPageOptions {
     Key? key,
     required this.imageProvider,
     this.heroAttributes,
+    this.localHeroTag,
     this.minScale,
     this.maxScale,
     this.initialScale,
@@ -338,6 +339,7 @@ class PhotoViewGalleryPageOptions {
     required this.child,
     this.childSize,
     this.heroAttributes,
+    this.localHeroTag,
     this.minScale,
     this.maxScale,
     this.initialScale,
@@ -360,6 +362,8 @@ class PhotoViewGalleryPageOptions {
 
   /// Mirror to [PhotoView.heroAttributes]
   final PhotoViewHeroAttributes? heroAttributes;
+
+  final Object? localHeroTag;
 
   /// Mirror to [PhotoView.minScale]
   final dynamic minScale;

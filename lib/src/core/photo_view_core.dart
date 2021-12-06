@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:local_hero/local_hero.dart';
 import 'package:photo_view/photo_view.dart'
     show
         PhotoViewScaleState,
@@ -27,6 +28,7 @@ class PhotoViewCore extends StatefulWidget {
     required this.backgroundDecoration,
     required this.gaplessPlayback,
     required this.heroAttributes,
+    required this.localHeroTag,
     required this.enableRotation,
     required this.onTapUp,
     required this.onTapDown,
@@ -49,6 +51,7 @@ class PhotoViewCore extends StatefulWidget {
     required this.customChild,
     required this.backgroundDecoration,
     this.heroAttributes,
+    this.localHeroTag,
     required this.enableRotation,
     this.onTapUp,
     this.onTapDown,
@@ -71,6 +74,7 @@ class PhotoViewCore extends StatefulWidget {
   final ImageProvider? imageProvider;
   final bool? gaplessPlayback;
   final PhotoViewHeroAttributes? heroAttributes;
+  final Object? localHeroTag;
   final bool enableRotation;
   final Widget? customChild;
 
@@ -123,6 +127,7 @@ class PhotoViewCoreState extends State<PhotoViewCore>
   Animation<double>? _rotationAnimation;
 
   PhotoViewHeroAttributes? get heroAttributes => widget.heroAttributes;
+  Object? get localHeroTag => widget.localHeroTag;
 
   late ScaleBoundaries cachedScaleBoundaries = widget.scaleBoundaries;
 
@@ -360,6 +365,17 @@ class PhotoViewCoreState extends State<PhotoViewCore>
   }
 
   Widget _buildHero() {
+    if (localHeroTag != null) {
+      return  LocalHero(
+            tag: localHeroTag!,
+            
+            child: _buildChild(),
+          );
+    
+    } else {
+
+    
+
     return heroAttributes != null
         ? Hero(
             tag: heroAttributes!.tag,
@@ -370,6 +386,7 @@ class PhotoViewCoreState extends State<PhotoViewCore>
             child: _buildChild(),
           )
         : _buildChild();
+    }
   }
 
   Widget _buildChild() {

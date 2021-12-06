@@ -13,6 +13,7 @@ class ImageWrapper extends StatefulWidget {
     required this.backgroundDecoration,
     required this.gaplessPlayback,
     required this.heroAttributes,
+    required this.localHeroTag,
     required this.scaleStateChangedCallback,
     required this.enableRotation,
     required this.controller,
@@ -40,6 +41,7 @@ class ImageWrapper extends StatefulWidget {
   final BoxDecoration backgroundDecoration;
   final bool gaplessPlayback;
   final PhotoViewHeroAttributes? heroAttributes;
+  final Object? localHeroTag;
   final ValueChanged<PhotoViewScaleState>? scaleStateChangedCallback;
   final bool enableRotation;
   final dynamic maxScale;
@@ -183,6 +185,7 @@ class _ImageWrapperState extends State<ImageWrapper> {
       gaplessPlayback: widget.gaplessPlayback,
       enableRotation: widget.enableRotation,
       heroAttributes: widget.heroAttributes,
+      localHeroTag: widget.localHeroTag,
       basePosition: widget.basePosition ?? Alignment.center,
       controller: widget.controller,
       scaleStateController: widget.scaleStateController,
@@ -228,6 +231,7 @@ class CustomChildWrapper extends StatelessWidget {
     required this.childSize,
     required this.backgroundDecoration,
     this.heroAttributes,
+    this.localHeroTag,
     this.scaleStateChangedCallback,
     required this.enableRotation,
     required this.controller,
@@ -252,6 +256,7 @@ class CustomChildWrapper extends StatelessWidget {
   final Size? childSize;
   final Decoration backgroundDecoration;
   final PhotoViewHeroAttributes? heroAttributes;
+  final Object? localHeroTag;
   final ValueChanged<PhotoViewScaleState>? scaleStateChangedCallback;
   final bool enableRotation;
 
@@ -289,6 +294,7 @@ class CustomChildWrapper extends StatelessWidget {
       backgroundDecoration: backgroundDecoration,
       enableRotation: enableRotation,
       heroAttributes: heroAttributes,
+      localHeroTag: localHeroTag,
       controller: controller,
       scaleStateController: scaleStateController,
       scaleStateCycle: scaleStateCycle ?? defaultScaleStateCycle,
